@@ -1,0 +1,125 @@
+// ------------- FOOTER------------- //
+
+.footer {
+    display: flex;
+    background-image: url('/src/assets/imgs/footer-bg.png');
+    background-color: rgba(41,41,41,1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 160px 120px 200px 120px;
+    position: relative;
+    overflow: hidden;
+    &:before {
+        content: "";
+        background-image: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    &:after {
+        content: "";
+        background-image: url('/src/assets/imgs/footer-bg-texture.png');
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+    }
+    &-texture {
+        width: calc(100% + 3px);
+        fill: #fff;
+        top: 0;
+        position: absolute;
+        z-index: 3;
+        left: 0;
+    }
+    &-links {
+        flex-grow: 2;
+        flex-basis: 0;
+        display: flex;
+        z-index: 3;
+        &-col {
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+        &-list {
+            color: rgba($grey, .5);
+            li + li {
+                margin-bottom: 2px;
+            }
+            a {
+                color: rgba($grey, .5);
+                &.callout {
+                    text-decoration: underline;
+                    color: $grey;
+                }
+            }
+        }
+    }
+    &-title {
+        @extend %medium-ss;
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: $column-gutter-md;
+        * + & {
+            margin-top: 60px;
+        }
+    }
+    &-social {
+        flex-grow: 1;
+        flex-basis: 0;
+        z-index: 3;
+        &-icons {
+            display: flex;
+            align-items: center;
+            li + li {
+                margin-left: $column-gutter-md;
+            }
+        }
+        &-icon {
+            fill: #fff;
+            &.twitter {
+                width: 33px;
+            }
+            &.facebook {
+                width: 30px;
+            }
+            &.youtube {
+                width: 30px;
+            }
+            &.pinterest {
+                width: 32px;
+            }
+            &.instagram {
+                width: 32px;
+            }
+        }
+        &-newsletter {
+            display: flex;
+            input {
+                border: 0;
+                outline: 0;
+                background-color: #3c3c3c;
+                font-family: $ss-serif;
+                color: #fff;
+                padding: 20px $column-gutter;
+                max-width: 280px;
+                width: 100%;
+            }
+            &-btn {
+                border: 0;
+                outline: 0;
+                background-color: #3c3c3c;
+                color: #fff;
+                text-transform: lowercase;
+                font-family: $serif;
+                font-size: 1.8rem;
+                padding: 0 $column-gutter;
+            }
+        }
+    }
+}

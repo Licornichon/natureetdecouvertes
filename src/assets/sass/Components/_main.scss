@@ -1,0 +1,35 @@
+// ------------- MAIN - CONTAINER ------------- //
+
+.main {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    &-header {
+        background-color: #fff;
+        padding: 5px $column-gutter-md 0 $column-gutter-md;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-breadcrumbs {
+            color: $grey;
+            @extend %x-small-ss;
+        }
+        &-filters {
+            display: flex;
+            align-items: center;
+            &-text {
+                cursor: pointer;
+                @extend %base-ss;
+                margin-right: $column-gutter;
+            }
+        }
+        + .cards-container {
+            margin-top: 0;
+        }
+    }
+    &-footer {
+        background-color: #fff;
+        text-align: center;
+        padding-top: $column-gutter-lg;
+    }
+}

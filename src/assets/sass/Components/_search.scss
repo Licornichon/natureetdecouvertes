@@ -1,0 +1,116 @@
+$search-icon: 32px;
+$search-input-offset: 10px;
+
+// ------------- SEARCH - CONTAINER ------------- //
+
+.search-container {
+    background-image: url("/src/assets/imgs/bg-search.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    &-inner {
+        display: flex;
+        padding: $column-gutter $column-gutter-md 80px #{$menu-icon + $column-gutter-md * 2};
+    }
+    &-input {
+        flex-grow: 1;
+        margin-right: 40px;
+        overflow: hidden;
+    }
+}
+
+// ------------- SEARCH - INPUT ------------- //
+
+.search-input {
+    position: relative;
+    input {
+        width: 100%;
+        border-radius: 4px;
+        height: 45px;
+        border: 0;
+    }
+    &-icon {
+        stroke: $primary-accent;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX($search-input-offset);
+        width: $search-icon;
+        height: $search-icon;
+    }
+    &-tags {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX($search-input-offset + $search-icon);
+        display: flex;
+        &-item {
+            margin-left: $column-gutter;
+            display: flex;
+            align-items: center;
+            @extend %base-ss;
+            line-height: 0; 
+        }
+        &-close {
+            stroke: $grey;
+            margin-left: 8px;
+        }
+    }
+}
+
+.search-tags {
+    margin-top: 10px;
+    white-space: nowrap;
+    position: relative;
+    &:after {
+        content: "";
+        width: 120px;
+        background: linear-gradient(to left, rgba(61,58,58,1) 0%,rgba(255,255,255,0) 100%);
+        height: 100%;
+        position: absolute;
+        right: 0;
+        pointer-events: none;
+    }
+    &-arrow {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    span {
+        @extend %base-ss;
+        display: inline-block;
+        line-height: 1;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 4px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        + span {
+            margin-left: 10px;
+        }
+        &:nth-child(5n + 1) {
+            background-color: #626c47;
+            background-image: url("/src/assets/imgs/blur2.png");
+        }
+        &:nth-child(5n + 2) {
+            background-color: #93af62; 
+            background-image: url("/src/assets/imgs/blur.png");
+        }
+        &:nth-child(5n + 3) {
+            background-color: #649e73;
+            background-image: url("/src/assets/imgs/blur3.png");
+        }
+        &:nth-child(5n + 4) {
+            background-color: #668b58;
+            background-image: url("/src/assets/imgs/blur2.png");
+            background-position: center center;
+        }
+        &:nth-child(5n + 5) {
+            background-color: #9ba64d;
+            background-image: url("/src/assets/imgs/blur.png");
+            background-position: bottom right;
+        }
+    }
+}

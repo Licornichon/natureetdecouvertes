@@ -1,0 +1,64 @@
+// ------------- HEADER ------------- //
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px $column-gutter-md 22px $column-gutter-md;
+    background-color: #fff;
+    &-logo {
+        display: flex;
+        align-items: center;
+        &-menu-icon {
+            width: $menu-icon;
+            height: $menu-icon;
+            cursor: pointer;
+            margin-right: $column-gutter-md;
+        }
+    }
+    &-links {
+        display: flex;
+        align-items: center;
+        color: $black;
+        a {
+            color: $black;
+        }
+        li {
+            display: flex;
+        }
+        &-curieux {
+            a {
+                @extend %small-ss;
+            }
+            &:after {
+                content: "";
+                height: $column-gutter;
+                width: 2px;
+                background-color: $light-grey;
+                margin-left: $column-gutter-md;
+                display: inline-block;
+                transform: translateY(2px);
+            }
+        }
+        li + li {
+            @extend %x-small-ss;
+            margin-left: $column-gutter-md;
+        }
+        &-cart-icon {
+            stroke: $primary-accent;
+        }
+        &-cart-total {
+            @extend %base-ss;
+            color: $off-white;
+            background-color: $primary-accent;
+            height: 25px;
+            width: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transform: translateX(-15px) translateY(17px);
+            letter-spacing: 0;
+        }
+    }
+}

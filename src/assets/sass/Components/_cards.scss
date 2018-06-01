@@ -1,0 +1,231 @@
+// ------------- CARDS ------------- //
+
+.cards {
+    &-container {
+        margin: 100px auto 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #fff;
+        //max-width: 1440px;
+    }
+    &-item {
+        flex-basis: 25%;
+        &-info {
+            position: relative;
+        }
+    }
+}
+
+// ------------- CARDS - PRODUCT ------------- //
+
+.cards-item.product {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: $column-gutter-lg $column-gutter-lg 40px $column-gutter-lg;
+    img {
+        display: block;
+        margin: 0 auto;
+        height: 260px;
+    }
+    .cards-item-callout {
+        background-color: $primary-accent;
+        color: #fff;
+        @extend %small-ss;
+        padding: 3px $column-gutter;
+        letter-spacing: .02em;
+        display: inline-block;
+        transform: translateX(-50%) translateY(-50%);
+        position: absolute;
+        left: 50%;
+        top: 0;
+        &.secondary {
+            background-color: $secondary-accent;
+        }
+    }
+    .cards-item-title {
+        @extend %large-ss;
+        max-width: 315px;
+        margin: 38px auto 0 auto;
+        min-height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .cards-item-price {
+        margin-top: 26px;
+        @extend %large-ss-r;
+        .current {
+            display: inline-flex;
+            justify-content: center;
+        }
+        &-super {
+            font-size: 1.1rem;
+            display: inline-block;
+            padding-top: 2px;
+            vertical-align: top;
+        }
+        .old {
+            color: $primary-accent;
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            display: inline-block;
+            vertical-align: baseline;
+            margin-right: 10px;
+        }
+    }
+}
+
+// ------------- CARDS - INTRO ------------- //
+
+.cards-item.intro {
+    padding: $column-gutter-lg $column-gutter-lg 40px $column-gutter-lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .cards-item-subtitle {
+        @extend %medium-ss;
+        color: $grey;
+        margin-bottom: 10px;
+    }
+    .cards-item-title {
+        @extend %large-s;
+    }
+}
+
+// ------------- CARDS - ARTICLE ------------- //
+
+.cards-item.article {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    &:before, &:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+    }
+    &:before {
+        background-image: url('/src/assets/imgs/article-mask.png');
+        background-position: top right;
+    }
+    &:after {
+        background-image: url('/src/assets/imgs/article-mask-2.png');
+        background-position: top left;
+    }
+    .cards-item-inner {
+        padding: 15% $column-gutter-lg 40px $column-gutter-lg;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    &:nth-child(4n + 1) {
+        .cards-item-inner {
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    &:nth-child(4n + 4) {
+        .cards-item-inner {
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+        &:before {
+            display: none;
+        }
+        .cards-item-title {
+            text-align: right;
+        }
+        .cards-item-btn:after {
+            margin-left: calc(100% - 110px);
+        }
+    }
+    .cards-item-title {
+        color: #fff;
+        @extend %small-s;
+        max-width: 230px;
+    }
+    .cards-item-btn {
+        @extend %btn-ss;
+        color: #fff;
+        margin-top: $column-gutter-md;
+        &:after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 35px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 15%;
+            filter: blur(.03em);
+        }
+        svg {
+            stroke: #fff;
+            margin-left: $column-gutter-md;
+            vertical-align: middle;
+        }
+    }
+}
+
+// ------------- CARDS - EXIT ------------- //
+
+$exit-card-border: 4px;
+
+.cards-item.exit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
+    position: relative;
+    padding: $column-gutter-md * 2 + $exit-card-border * 2;
+    &:after {
+        content: "";
+        display: block;
+        height: calc(100% - #{$column-gutter-md * 2});
+        width: calc(100% - #{$column-gutter-md * 2});
+        background-image: url('/src/assets/imgs/texture.png');
+        clip-path: polygon(0% 0%, 0% 100%, #{$exit-card-border} 100%, #{$exit-card-border} #{$exit-card-border}, calc(100% - #{$exit-card-border}) #{$exit-card-border}, calc(100% - #{$exit-card-border}) calc(100% - #{$exit-card-border}), #{$exit-card-border} calc(100% - #{$exit-card-border}), #{$exit-card-border} 100%, 100% 100%, 100% 0%);
+        position: absolute;
+        pointer-events: none;
+        top: $column-gutter-md;
+        left: $column-gutter-md;
+    }
+    .cards-item-title {
+        @extend %x-large-ss;
+        max-width: 280px;
+        text-align: right;
+    }
+    .cards-item-link {
+        margin-top: 8px;
+        @extend %btn-ss;
+        cursor: pointer;
+        svg {
+            vertical-align: middle;
+            stroke: $primary-dark;
+            margin-left: 2px;
+        }
+    }
+}
+
+@for $i from 1 through length($cardColors) {
+    .cards-container:nth-child(#{$i + 1}) {
+        .cards-item.intro .cards-item-title, .cards-item.exit .cards-item-title {
+            color: nth($cardColors, $i);
+        }
+        .cards-item.exit:after {
+            background-color: nth($cardColors, $i);
+        }
+    }
+}

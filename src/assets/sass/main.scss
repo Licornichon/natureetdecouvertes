@@ -1,0 +1,25 @@
+@import
+    
+// ------------- NORMALIZE ------------- //
+    
+"_normalize.scss", //Browser reset
+
+// ------------- UTILITIES ------------- //
+    
+"_utilities.scss", //Variables and mixins
+"_typography.scss", //Typography related mixins and declarations
+     
+
+// ------------- GLOBAL ------------- //
+
+"_global.scss", //General global styles
+
+// ------------- COMPONENTS ------------- //
+
+"Components/_header.scss",
+"Components/_search.scss",
+"Components/_main.scss",
+"Components/_cards.scss",
+"Components/_carteclub.scss",
+"Components/_reassurance.scss",
+"Components/_footer.scss";

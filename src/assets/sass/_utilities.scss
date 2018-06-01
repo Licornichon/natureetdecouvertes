@@ -1,0 +1,50 @@
+// ------------- COLORS ------------- //
+
+$primary-dark:              #3c3c3b;
+$primary-accent:            #c64a34;
+$secondary-accent:          #b97d09;
+$tertiary-accent:           #626c47;
+$black:                     #000;
+$grey:                      #c8c8c8;
+$light-grey:                #dfdfdf;
+$off-white:                 #f3f1e7;
+
+$cardColors: #626c47, #9ca64d, #649e73;
+
+
+// ------------- SIZING / SPACING ------------- //
+
+$column-gutter:             15px;
+$column-gutter-md:          $column-gutter * 2;
+$column-gutter-lg:          50px;
+
+$menu-icon:                 21px;
+
+// ------------- RESPONSIVE BREAKPOINTS MAP ------------- //
+
+$breakpoints: ( 
+    large : 1280px, 
+    medium: 1050px,
+    small : 640px,
+    mobile : 380px 
+);
+
+
+// ------------- MEDIA QUERIES MIXIN ------------- //
+
+@mixin media($breakpoint, $breakpoints-map: $breakpoints) {
+
+    @if map-has-key($breakpoints-map, $breakpoint) {
+        $breakpoint: map-get($breakpoints-map, $breakpoint);
+
+        @media (max-width: $breakpoint) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (max-width:$breakpoint) {
+            @content;
+        }
+    }
+}
